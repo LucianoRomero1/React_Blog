@@ -1,4 +1,8 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
+import { Articles } from "../pages/Articles";
+import { CreateArticle } from "../pages/CreateArticle";
+import { Home } from "../pages/Home";
 
 export const Navbar = () => {
   return (
@@ -6,16 +10,13 @@ export const Navbar = () => {
       <nav className="nav">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <NavLink to='/home' element={<Home />} >Home</NavLink>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <NavLink to='/articles' element={<Articles />} >Articles</NavLink>
           </li>
           <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+          <NavLink to='/create-article' element={<CreateArticle />} >Create Article</NavLink>
           </li>
         </ul>
       </nav>

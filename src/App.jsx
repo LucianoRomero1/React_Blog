@@ -5,8 +5,7 @@ import { Home } from "./components/pages/Home";
 import { CustomRoutes } from "./routing/CustomRoutes";
 
 function App() {
-  return <div className="App">
-    <h1>Blog with React</h1>
+  return <div className="layout">
     <CustomRoutes />
   </div>;
 }
