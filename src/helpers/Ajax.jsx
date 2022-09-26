@@ -1,4 +1,4 @@
-export const Ajax = async (url, method, dataToSave = "") => {
+export const Ajax = async (url, method, dataToSave = "", files = false) => {
   let loading = true;
 
   let options = {
@@ -12,13 +12,21 @@ export const Ajax = async (url, method, dataToSave = "") => {
   }
 
   if (method == "POST" || method == "PUT") {
-    options = {
-      method: method,
-      body: JSON.stringify(dataToSave),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+
+    if(files){
+      options = {
+        method: method,
+        body: dataToSave
+      };
+    }else{
+      options = {
+        method: method,
+        body: JSON.stringify(dataToSave),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+    }
   }
   const request = await fetch(url, options);
   const data = await request.json();

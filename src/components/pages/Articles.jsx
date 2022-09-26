@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Ajax } from "../../helpers/Ajax";
 import { Global } from "../../helpers/Global";
+import { List } from "./List";
 
 export const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -24,26 +25,11 @@ export const Articles = () => {
   return (
     <>
       {loading ? (
-        "Loading... "
+        "Loading..."
       ) : articles.length >= 1 ? (
-        articles.map((article) => {
-          return (
-            <article key={article._id} className="article-item">
-              <div className="mask">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
-              </div>
-              <div className="data">
-                <h3 className="title">{article.title}</h3>
-                <p className="description">{article.content}</p>
-
-                <button className="edit">Edit</button>
-                <button className="delete">Delete</button>
-              </div>
-            </article>
-          );
-        })
+        <List articles={articles} setArticles={setArticles} />
       ) : (
-        <h1>Not results found</h1>
+        <h1>No results found</h1>
       )}
     </>
   );
