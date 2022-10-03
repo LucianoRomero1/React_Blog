@@ -15,10 +15,19 @@ export const CreateArticle = () => {
     let newArticle = form;
 
     const {data, loading} = await Ajax(Global.url + 'create', 'POST', newArticle);
-    if(data.status === 'success'){
+
+    if(data.status === "success"){
+      setResult("saved");
+    }else{
+      setResult("error");
+    }
+
+    const fileInput = document.querySelector('#file');
+
+
+    if(data.status === 'success' && fileInput.files[0]){
       setResult("saved");
 
-      const fileInput = document.querySelector('#file');
       const formData = new FormData();
       formData.append('file', fileInput.files[0]);
 
@@ -31,11 +40,7 @@ export const CreateArticle = () => {
         setResult("error");
       }
 
-    }else{
-      setResult("error");
     }
-
-    console.log(result);
   }
 
 

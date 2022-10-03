@@ -7,6 +7,7 @@ import { Sidebar } from '../components/layout/Sidebar';
 import { Articles } from '../components/pages/Articles';
 import { CreateArticle } from '../components/pages/CreateArticle';
 import { Home } from '../components/pages/Home';
+import { Seeker } from '../components/pages/Seeker';
 
 export const CustomRoutes = () => {
     return (
@@ -22,6 +23,12 @@ export const CustomRoutes = () => {
                     <Route path='/home' element={<Home />} />
                     <Route path='/articles' element={<Articles />} />
                     <Route path='/create-article' element={<CreateArticle />} />
+                    <Route path='/seeker/:search' element={<Seeker />} />
+                    <Route path='*' element={
+                        <div className='jumbo'>
+                            <h1>Error 404</h1>
+                        </div>
+                    } />
                 </Routes>
             </section>
 

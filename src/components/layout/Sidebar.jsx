@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Global } from "../../helpers/Global";
 
 export const Sidebar = () => {
+  const [search, setSearch] = useState("");
+  const [navigate] = useNavigate();
+
+  const makeSearch = (e) => {
+    e.preventDefault();
+    let mySearch = e.target.search_field.value;
+
+    navigate("/seeker/" + mySearch, { replace: true });
+  };
+
   return (
     <aside className="lateral">
       <div className="search">
         <h3 className="title">Seeker: </h3>
-        <form>
+        <form onSubmit={makeSearch}>
           <input type="text" id="search_field" autoComplete="off" />
-          <button id="search">Search</button>
+          <button type="submit" id="search" value="Search">
+            Search
+          </button>
         </form>
       </div>
       {/* <div className="add">
