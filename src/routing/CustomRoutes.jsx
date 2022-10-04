@@ -4,6 +4,7 @@ import { Footer } from '../components/layout/Footer';
 import { Header } from '../components/layout/Header';
 import { Navbar } from '../components/layout/Navbar';
 import { Sidebar } from '../components/layout/Sidebar';
+import { Article } from '../components/pages/Article';
 import { Articles } from '../components/pages/Articles';
 import { CreateArticle } from '../components/pages/CreateArticle';
 import { Home } from '../components/pages/Home';
@@ -24,6 +25,7 @@ export const CustomRoutes = () => {
                     <Route path='/articles' element={<Articles />} />
                     <Route path='/create-article' element={<CreateArticle />} />
                     <Route path='/seeker/:search' element={<Seeker />} />
+                    <Route path='/article/:id' element={<Article />} />
                     <Route path='*' element={
                         <div className='jumbo'>
                             <h1>Error 404</h1>

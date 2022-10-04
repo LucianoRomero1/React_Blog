@@ -1,6 +1,7 @@
 import React from "react";
 import { Global } from "../../helpers/Global";
 import { Ajax } from "../../helpers/Ajax";
+import { Link } from "react-router-dom";
 
 export const List = ({ articles, setArticles }) => {
   const deleteArticle = async (id) => {
@@ -26,7 +27,7 @@ export const List = ({ articles, setArticles }) => {
           )}
         </div>
         <div className="data">
-          <h3 className="title">{article.title}</h3>
+          <h3 className="title"><Link to={"/article/" + article._id}>{article.title}</Link></h3>
           <p className="description">{article.content}</p>
 
           <button className="edit">Edit</button>
