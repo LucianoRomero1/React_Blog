@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Global } from "../../helpers/Global";
+
 
 export const Sidebar = () => {
   const [search, setSearch] = useState("");
-  const [navigate] = useNavigate();
+  const navigate = useNavigate();
 
   const makeSearch = (e) => {
     e.preventDefault();

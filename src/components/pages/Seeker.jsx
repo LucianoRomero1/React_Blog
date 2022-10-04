@@ -23,7 +23,9 @@ export const Seeker = () => {
     const { data, loading } = await Ajax(Global.url + "seeker/"+params.search, "GET");
 
     if (data.status == "success") {
-      setArticles(data.articles);
+      setArticles(data.foundArticles);
+    }else{
+      setArticles([]);
     }
 
     setLoading(false);
