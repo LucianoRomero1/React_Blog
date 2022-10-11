@@ -7,6 +7,7 @@ import { Sidebar } from '../components/layout/Sidebar';
 import { Article } from '../components/pages/Article';
 import { Articles } from '../components/pages/Articles';
 import { CreateArticle } from '../components/pages/CreateArticle';
+import { EditArticle } from '../components/pages/EditArticle';
 import { Home } from '../components/pages/Home';
 import { Seeker } from '../components/pages/Seeker';
 
@@ -26,6 +27,7 @@ export const CustomRoutes = () => {
                     <Route path='/create-article' element={<CreateArticle />} />
                     <Route path='/seeker/:search' element={<Seeker />} />
                     <Route path='/article/:id' element={<Article />} />
+                    <Route path='/edit/:id' element={<EditArticle />} />
                     <Route path='*' element={
                         <div className='jumbo'>
                             <h1>Error 404</h1>
